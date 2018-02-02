@@ -446,6 +446,26 @@ class Job
     }
 
     /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        if(!$this->getCreatedAt())
+        {
+            $this->createdAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @ORM\PreUpdate
+     * @ORM\PrePersist
+     */
+    public function setUpdatedAtValue()
+    {
+        $this->updatedAt = new \DateTime();
+    }
+
+    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
@@ -476,7 +496,7 @@ class Job
      *
      * @return Job
      */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
 

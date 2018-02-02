@@ -178,6 +178,17 @@ class Affiliate
     }
 
     /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        if(!$this->getCreatedAt())
+        {
+            $this->createdAt = new \DateTime();
+        }
+    }
+
+    /**
      * Get createdAt
      *
      * @return \DateTime
@@ -194,7 +205,7 @@ class Affiliate
      *
      * @return Affiliate
      */
-    public function addCategory(\AppBundle\Entity\Category $category)
+    public function addCategory(Category $category)
     {
         $this->categories[] = $category;
 
@@ -206,7 +217,7 @@ class Affiliate
      *
      * @param \AppBundle\Entity\Category $category
      */
-    public function removeCategory(\AppBundle\Entity\Category $category)
+    public function removeCategory(Category $category)
     {
         $this->categories->removeElement($category);
     }
