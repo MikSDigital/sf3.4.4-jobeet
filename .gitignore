@@ -16,6 +16,9 @@
 /vendor/
 /web/bundles/
 
+*.iml
+.idea/vcs.xml
+.idea/jobeet.iml
 
 # Created by https://www.gitignore.io/api/phpstorm
 
