@@ -144,4 +144,9 @@ class Category
     {
         return $this->affiliates;
     }
+
+    public function __toString()  //  to be used by the Category drop down from the edit job form
+    {
+        return $this->getName();
+    }
 }
