@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
@@ -22,51 +23,61 @@ class Job
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="jobs")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @Assert\NotBlank()
      */
     private $category;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $company;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $logo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $position;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $location;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $description;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $howToApply;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $token;
 
@@ -82,21 +93,25 @@ class Job
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $email;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank()
      */
     private $expiresAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank()
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank()
      */
     private $updatedAt;
 
